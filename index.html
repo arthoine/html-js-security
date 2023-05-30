@@ -16,14 +16,14 @@
 <script>
     var form = document.querySelector('form');
     form.addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêche l'envoi du formulaire
+        event.preventDefault();
 
         var inputText = document.getElementById('inputText').value;
         document.write("<p>Vous avez saisi : " + inputText + "</p>");
 
         window.setTimeout(function() {
-            window.location.reload(); // Actualise la page après un délai
-        }, 2000); // Définissez ici la durée de délai en millisecondes (2 secondes dans cet exemple)
+            window.location.reload();
+        }, 5000);
     });
 </script>
 </body>
