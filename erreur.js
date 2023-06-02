@@ -6,4 +6,5 @@ form.addEventListener('submit', function(event) {
     window.setTimeout(function() {
     window.location.reload();
 }, 5000);
+
 });
