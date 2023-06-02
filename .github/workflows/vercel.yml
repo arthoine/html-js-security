@@ -4,7 +4,7 @@ env:
   VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 on:
   pull_request:
-    branches: ['main']
+    branches: ["main"]
 jobs:
   Deploy-Preview:
     runs-on: ubuntu-latest
@@ -21,11 +21,10 @@ jobs:
         run: echo "url=$(vercel deploy --prebuilt --token=${{ secrets.VERCEL_TOKEN }})" >> $GITHUB_OUTPUT
       - uses: actions/github-script@v3
         with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'The preview URL is: ${{ steps.deploy.outputs.url }}.'
-            });
+              body: `Preview Deployment: ${{ steps.deploy.outputs.url }}`
+            })
